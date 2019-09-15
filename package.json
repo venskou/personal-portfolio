@@ -20,6 +20,8 @@
   "homepage": "https://github.com/venskou/personal-portfolio#readme",
   "dependencies": {
     "browser-sync": "^2.26.7",
-    "gulp": "^4.0.2"
+    "gulp": "^4.0.2",
+    "gulp-htmlhint": "^2.2.1",
+    "gulp-pretty-html": "^2.0.10"
   }
 }
