@@ -7,19 +7,26 @@ const htmlhint = require('gulp-htmlhint');
 const prettyHtml = require('gulp-pretty-html');
 const uglify = require('gulp-uglify');
 const rename = require('gulp-rename');
-
+const plumber = require('gulp-plumber');
+const sass = require('gulp-sass');
+sass.compiler = require('node-sass');
+const cssnano = require('gulp-cssnano');
+const autoprefixer = require('gulp-autoprefixer');
 // Config directories
 const dirs = {
   src: {
     html: 'src/*.html',
+    styles: 'src/styles/styles.scss',
     js: 'src/js/**/*.js'
   },
   dist: {
     html: 'dist/',
-    js: 'dist/js/'
+    styles: 'dist/styles/',
+    js: 'dist/js/',
   },
   watch: {
     html: 'src/*.html',
+    styles: 'src/styles/**/*.scss',
     js: 'src/js/**/*.js',
   },
 };
@@ -56,6 +63,27 @@ function buildHTML(done) {
   done();
 }
 
+// Build styles
+function buildStyles(done) {
+  gulp.src(dirs.src.styles)
+    .pipe(plumber())
+    .pipe(sass({
+      outputStyle: 'expanded',
+      indentWidth: 2
+    }))
+    .pipe(autoprefixer({
+      cascade: true
+    }))
+    .pipe(gulp.dest(dirs.dist.styles))
+    .pipe(cssnano())
+    .pipe(rename({
+      suffix: '.min',
+      extname: '.css',
+    }))
+    .pipe(gulp.dest(dirs.dist.styles));
+  done();
+}
+
 // Build JS
 function buildJS(done) {
   gulp.src(dirs.src.js)
@@ -71,6 +99,7 @@ function buildJS(done) {
 // Watch files
 function watch() {
   gulp.watch(dirs.watch.html, gulp.series(buildHTML, reloadServer));
+  gulp.watch(dirs.watch.styles, gulp.series(buildStyles, reloadServer));
   gulp.watch(dirs.watch.js, gulp.series(buildJS, reloadServer));
 }
 
@@ -78,8 +107,9 @@ function watch() {
 exports.server = server;
 exports.watch = watch;
 exports.buildHTML = buildHTML;
+exports.buildStyles = buildStyles;
 exports.buildJS = buildJS;
-const build = gulp.parallel(buildHTML, buildJS);
+const build = gulp.parallel(buildHTML, buildStyles, buildJS);
 exports.build = build;
 
 // Default task
