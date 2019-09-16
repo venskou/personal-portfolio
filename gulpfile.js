@@ -16,6 +16,8 @@ const npmDist = require('gulp-npm-dist');
 const rimraf = require('gulp-rimraf');
 const imagemin = require('gulp-imagemin');
 const svgmin = require('gulp-svgmin');
+const svgstore = require('gulp-svgstore');
+const cheerio = require('gulp-cheerio');
 
 // Config directories
 const dirs = {
@@ -24,7 +26,8 @@ const dirs = {
     styles: 'src/styles/styles.scss',
     js: 'src/js/**/*.js',
     images: 'src/images/**/*.{png,jpg,gif}',
-    svg: 'src/images/**/*.svg',
+    svg: ['src/images/**/*.svg', '!src/images/svg/sprite/**/*.svg'],
+    svgSprite: 'src/images/svg/sprite/**/*.svg',
     vendors: 'src/vendors/'
   },
   dist: {
@@ -32,6 +35,7 @@ const dirs = {
     styles: 'dist/styles/',
     js: 'dist/js/',
     images: 'dist/images/',
+    svgSprite: 'dist/images/svg/sprite/',
     vendors: 'dist/vendors/'
   },
   watch: {
@@ -39,7 +43,8 @@ const dirs = {
     styles: 'src/styles/**/*.scss',
     js: 'src/js/**/*.js',
     images: 'src/images/**/*.{png,jpg,gif}',
-    svg: 'src/images/**/*.svg',
+    svg: ['src/images/**/*.svg', '!src/images/svg/sprite/**/*.svg'],
+    svgSprite: 'src/images/svg/sprite/**/*.svg'
   },
   clean: ['dist/*']
 };
@@ -161,6 +166,57 @@ function buildSVG(done) {
   done();
 }
 
+// Build SVG sprite
+function buildSVGSprite(done) {
+  gulp.src(dirs.src.svgSprite)
+    .pipe(svgmin(function() {
+      return {
+        plugins: [{
+          removeDoctype: true
+        }, {
+          removeComments: true
+        }, {
+          removeViewBox: false
+        }, {
+          cleanupNumericValues: {
+            floatPrecision: 2
+          }
+        }, {
+          convertColors: {
+            names2hex: true,
+            rgb2hex: true
+          }
+        }, {
+          cleanupIDs: {
+            minify: true
+          }
+        }]
+      }
+    }))
+    .pipe(cheerio({
+      run: function($) {
+        $('svg').attr('width', null).attr('height', null);
+      },
+      parserOptions: {
+        xmlMode: true
+      }
+    }))
+    .pipe(svgstore({
+      inlineSvg: true
+    }))
+    .pipe(cheerio({
+      run: function($) {
+        $('svg').attr('style', 'display: none');
+      },
+      parserOptions: {
+        xmlMode: true
+      }
+    }))
+    .pipe(rename('sprite.svg'))
+    .pipe(gulp.dest(dirs.dist.svgSprite));
+  done();
+}
+
 // Copy vendors
 function copyVendors(done) {
   gulp.src(npmDist(), { base: './node_modules/' })
@@ -176,6 +232,7 @@ function watch() {
   gulp.watch(dirs.watch.js, gulp.series(buildJS, reloadServer));
   gulp.watch(dirs.watch.images, gulp.series(buildImages, reloadServer));
   gulp.watch(dirs.watch.svg, gulp.series(buildSVG, reloadServer));
+  gulp.watch(dirs.watch.svgSprite, gulp.series(buildSVGSprite, reloadServer));
 }
 
 // Export tasks
@@ -187,8 +244,9 @@ exports.buildStyles = buildStyles;
 exports.buildJS = buildJS;
 exports.buildImages = buildImages;
 exports.buildSVG = buildSVG;
+exports.buildSVGSprite = buildSVGSprite;
 exports.copyVendors = copyVendors;
-const build = gulp.series(clean, copyVendors, gulp.parallel(buildHTML, buildStyles, buildJS, buildImages, buildSVG));
+const build = gulp.series(clean, copyVendors, gulp.parallel(buildHTML, buildStyles, buildJS, buildImages, buildSVG, buildSVGSprite));
 exports.build = build;
 
 // Default task
