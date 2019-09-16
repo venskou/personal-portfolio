@@ -1,0 +1,17 @@
+.experience {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+
+  &__partition {
+    flex-basis: 50%;
+    flex-grow: 1;
+    flex-shrink: 1;
+    padding-right: 30px;
+  }
+
+  &__title {
+    margin-bottom: 25px;
+  }
+}
