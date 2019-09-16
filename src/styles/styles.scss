@@ -7,6 +7,10 @@
   box-sizing: border-box;
 }
 
+html {
+  height: 100%;
+}
+
 body {
   font-family: $font-family-base;
   font-size: $font-size-base;
@@ -14,5 +18,7 @@ body {
   font-style: normal;
   overflow-x: hidden;
   min-width: $body-min-width;
-  background-color: $gray;
+  height: 100%;
 }
+
+@import '_blocks/blocks';

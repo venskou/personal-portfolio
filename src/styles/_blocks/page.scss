@@ -1,0 +1,26 @@
+.page {
+  background-color: $gray;
+  background-image: url('/images/svg/triangles-top.svg'),
+  url('/images/svg/triangles-bottom.svg');
+  background-position: left top,
+  right bottom;
+  background-repeat: no-repeat;
+  padding-top: 160px;
+  min-height: 100%;
+
+  &__layout {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+  }
+
+  &__sidebar {
+    flex-shrink: 0;
+    width: 280px;
+    margin-right: 30px;
+  }
+
+  &__content {
+    flex-grow: 1;
+  }
+}
