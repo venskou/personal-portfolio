@@ -14,6 +14,7 @@ const cssnano = require('gulp-cssnano');
 const autoprefixer = require('gulp-autoprefixer');
 const npmDist = require('gulp-npm-dist');
 const rimraf = require('gulp-rimraf');
+const imagemin = require('gulp-imagemin');
 
 // Config directories
 const dirs = {
@@ -21,18 +22,21 @@ const dirs = {
     html: 'src/*.html',
     styles: 'src/styles/styles.scss',
     js: 'src/js/**/*.js',
+    images: 'src/images/**/*.{png,jpg,gif}',
     vendors: 'src/vendors/'
   },
   dist: {
     html: 'dist/',
     styles: 'dist/styles/',
     js: 'dist/js/',
+    images: 'dist/img/',
     vendors: 'dist/vendors/'
   },
   watch: {
     html: 'src/*.html',
     styles: 'src/styles/**/*.scss',
     js: 'src/js/**/*.js',
+    images: 'src/images/**/*.{png,jpg,gif}',
   },
   clean: ['dist/*']
 };
@@ -108,6 +112,21 @@ function buildJS(done) {
   done();
 }
 
+// Build images
+function buildImages(done) {
+  gulp.src(dirs.src.images)
+    .pipe(imagemin([
+      imagemin.optipng({
+        optimizationLevel: 3
+      }),
+      imagemin.jpegtran({
+        progressive: true
+      })
+    ]))
+    .pipe(gulp.dest(dirs.dist.images));
+  done();
+}
+
 // Copy vendors
 function copyVendors(done) {
   gulp.src(npmDist(), { base: './node_modules/' })
@@ -121,6 +140,7 @@ function watch() {
   gulp.watch(dirs.watch.html, gulp.series(buildHTML, reloadServer));
   gulp.watch(dirs.watch.styles, gulp.series(buildStyles, reloadServer));
   gulp.watch(dirs.watch.js, gulp.series(buildJS, reloadServer));
+  gulp.watch(dirs.watch.images, gulp.series(buildImages, reloadServer));
 }
 
 // Export tasks
@@ -130,8 +150,9 @@ exports.clean = clean;
 exports.buildHTML = buildHTML;
 exports.buildStyles = buildStyles;
 exports.buildJS = buildJS;
+exports.buildImages = buildImages;
 exports.copyVendors = copyVendors;
-const build = gulp.series(clean, copyVendors, gulp.parallel(buildHTML, buildStyles, buildJS));
+const build = gulp.series(clean, copyVendors, gulp.parallel(buildHTML, buildStyles, buildJS, buildImages));
 exports.build = build;
 
 // Default task
