@@ -18,7 +18,7 @@
     "url": "https://github.com/venskou/personal-portfolio/issues"
   },
   "homepage": "https://github.com/venskou/personal-portfolio#readme",
-  "dependencies": {
+  "devDependencies": {
     "browser-sync": "^2.26.7",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^7.0.0",
