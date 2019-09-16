@@ -4,8 +4,26 @@
   list-style: none;
   display: flex;
   flex-direction: row;
+  font-weight: normal;
+  align-items: flex-start;
+  justify-content: center;
+
+  &__item {
+    flex-shrink: 0;
+  }
+
+  &__link {
+    display: block;
+    line-height: 1;
+  }
 
   &__text {
     @include visually-hidden();
+  }
+
+  &__icon {
+    width: 25px;
+    height: 25px;
+    padding: 5px;
   }
 }
