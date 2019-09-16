@@ -1,0 +1,27 @@
+.title {
+  margin: 0;
+  position: relative;
+
+  &--h1 {
+    font-size: 32px;
+    padding-bottom: 13px;
+
+    &::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 50px;
+      height: 4px;
+      background-color: $blue;
+    }
+  }
+
+  &--h2 {
+    font-size: 24px;
+  }
+
+  &--h3 {
+    font-size: 16px;
+  }
+}
