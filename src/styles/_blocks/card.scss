@@ -1,0 +1,18 @@
+.card {
+  border-radius: 15px;
+  background-color: $white;
+  box-shadow: 0 24px 40px rgba($dark-gray, 0.25);
+
+  &--unshadow {
+    box-shadow: none;
+  }
+
+  &--unrounded-top {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+
+  &__body {
+    padding: 30px;
+  }
+}
