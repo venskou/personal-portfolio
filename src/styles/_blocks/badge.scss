@@ -1,0 +1,14 @@
+.badge {
+  display: inline-block;
+  vertical-align: baseline;
+  padding: 7px 10px;
+  font-size: 14px;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  border-radius: 20px;
+
+  &--gray {
+    background-color: $gray;
+  }
+}
