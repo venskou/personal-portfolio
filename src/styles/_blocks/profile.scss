@@ -1,0 +1,43 @@
+.profile {
+  &__intro {
+    text-align: center;
+    padding-bottom: 15px;
+  }
+
+  &__photo {
+    width: 180px;
+  }
+
+  &__photo-container {
+    clip-path: url(#profile-photo);
+  }
+
+  &__contacts {
+    background-color: $light-gray;
+  }
+
+  &__contacts-container {
+    padding-top: 20px;
+  }
+
+  &__owner {
+    display: block;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    font-size: 24px;
+    font-weight: 400;
+  }
+
+  &__owner-surname {
+    font-weight: 700;
+  }
+
+  &__specialty {
+    margin-top: 0;
+    margin-bottom: 15px;
+  }
+
+  &__cv-download {
+    margin-top: 20px;
+  }
+}
