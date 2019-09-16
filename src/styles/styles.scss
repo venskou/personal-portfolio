@@ -1,5 +1,6 @@
 @import 'vendors';
 @import 'variables';
+@import 'mixins';
 
 *,
 *::before,
@@ -16,9 +17,19 @@ body {
   font-size: $font-size-base;
   line-height: $line-height-base;
   font-style: normal;
+  color: $darken-gray;
   overflow-x: hidden;
   min-width: $body-min-width;
   height: 100%;
+}
+
+a {
+  color: $darken-gray;
+
+  &:hover,
+  &:focus {
+    color: $blue;
+  }
 }
 
 @import '_blocks/blocks';
