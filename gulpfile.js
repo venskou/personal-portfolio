@@ -13,6 +13,7 @@ sass.compiler = require('node-sass');
 const cssnano = require('gulp-cssnano');
 const autoprefixer = require('gulp-autoprefixer');
 const npmDist = require('gulp-npm-dist');
+const rimraf = require('gulp-rimraf');
 
 // Config directories
 const dirs = {
@@ -33,6 +34,7 @@ const dirs = {
     styles: 'src/styles/**/*.scss',
     js: 'src/js/**/*.js',
   },
+  clean: ['dist/*']
 };
 
 // Local Server
@@ -52,6 +54,12 @@ function server(done) {
 function reloadServer(done) {
   browserSync.reload();
   done();
+}
+
+// Clean dist folder
+function clean() {
+  return gulp.src(dirs.clean)
+    .pipe(rimraf());
 }
 
 // Build HTML
@@ -118,11 +126,12 @@ function watch() {
 // Export tasks
 exports.server = server;
 exports.watch = watch;
+exports.clean = clean;
 exports.buildHTML = buildHTML;
 exports.buildStyles = buildStyles;
 exports.buildJS = buildJS;
 exports.copyVendors = copyVendors;
-const build = gulp.series(copyVendors, gulp.parallel(buildHTML, buildStyles, buildJS));
+const build = gulp.series(clean, copyVendors, gulp.parallel(buildHTML, buildStyles, buildJS));
 exports.build = build;
 
 // Default task
