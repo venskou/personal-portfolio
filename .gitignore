@@ -5,6 +5,7 @@ dist/*
 
 # dependencies
 /node_modules
+/src/vendors
 
 # IDEs and editors
 /.idea
