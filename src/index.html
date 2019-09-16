@@ -10,18 +10,113 @@
   <link rel="stylesheet" href="/styles/styles.css">
 </head>
 <body>
-  <div class="page">
-    <div class="container">
-      <div class="page__layout">
-        <aside class="page__sidebar">
-          
-        </aside>
-        <main class="page__content">
+<div class="page">
+  <div class="container">
+    <div class="page__layout">
+      <aside class="page__sidebar profile card">
+        <section class="profile__intro card__body">
+          <svg class="profile__photo" viewBox="0 0 188 188">
+            <defs>
+              <clipPath id="profile-photo">
+                <path
+                  d="M1.85379 38.4859C2.9221 18.6653 18.6653 2.92275 38.4858 1.85453 56.0986.905299 77.2792 0 94 0c16.721 0 37.901.905299 55.514 1.85453 19.821 1.06822 35.564 16.81077 36.632 36.63137C187.095 56.0922 188 77.267 188 94c0 16.733-.905 37.908-1.854 55.514-1.068 19.821-16.811 35.563-36.632 36.631C131.901 187.095 110.721 188 94 188c-16.7208 0-37.9014-.905-55.5142-1.855-19.8205-1.068-35.5637-16.81-36.63201-36.631C.904831 131.908 0 110.733 0 94c0-16.733.904831-37.9078 1.85379-55.5141z"></path>
+              </clipPath>
+            </defs>
+            <g class="profile__photo-container">
+              <image xlink:href="/images/photo.jpg" height="100%" width="100%"></image>
+            </g>
+          </svg>
+          <strong class="profile__owner">
+            Uladzislau
+            <span class="profile__owner-surname">Vensko</span>
+          </strong>
+          <p class="profile__specialty badge badge--gray">Front-end Developer</p>
+          <ul class="profile__socials social">
+            <li class="social__item">
+              <a href="#" class="social__link" title="LinkedIn">
+                <svg class="social__icon">
+                  <use xlink:href="/images/svg/sprite/sprite.svg#linkedin-icon"></use>
+                </svg>
+                <span class="social__text">LinkedIn</span>
+              </a>
+            </li>
+            <li class="social__item">
+              <a href="#" class="social__link" title="GitHub">
+                <svg class="social__icon">
+                  <use xlink:href="/images/svg/sprite/sprite.svg#github-icon"></use>
+                </svg>
+                <span class="social__text">GitHub</span>
+              </a>
+            </li>
+            <li class="social__item">
+              <a href="#" class="social__link" title="vkontakte.ru">
+                <svg class="social__icon">
+                  <use xlink:href="/images/svg/sprite/sprite.svg#vk-icon"></use>
+                </svg>
+                <span class="social__text">VK</span>
+              </a>
+            </li>
+          </ul>
+        </section>
+        <section class="card card--unshadow card--unrounded-top profile__contacts">
+          <div class="card__body profile__contacts-container">
+            <ul class="contacts">
+              <li class="contacts__item">
+                <a href="#" class="contacts__link" title="Location">
+                  <svg class="contacts__icon">
+                    <use xlink:href="/images/svg/sprite/sprite.svg#map-pin-icon"></use>
+                  </svg>
+                  Belarus, Minsk
+                </a>
+              </li>
+              <li class="contacts__item">
+                <a href="#" class="contacts__link" title="Contact phone">
+                  <svg class="contacts__icon">
+                    <use xlink:href="/images/svg/sprite/sprite.svg#mobile-icon"></use>
+                  </svg>
+                  +375 (25) 907-54-37
+                </a>
+              </li>
+              <li class="contacts__item">
+                <a href="#" class="contacts__link" title="Email">
+                  <svg class="contacts__icon">
+                    <use xlink:href="/images/svg/sprite/sprite.svg#mail-icon"></use>
+                  </svg>
+                  ulad.vensko@gmail.com
+                </a>
+              </li>
+              <li class="contacts__item">
+                <a href="#" class="contacts__link" title="Skype">
+                  <svg class="contacts__icon">
+                    <use xlink:href="/images/svg/sprite/sprite.svg#skype-icon"></use>
+                  </svg>
+                  live:ulad.vensko
+                </a>
+              </li>
+              <li class="contacts__item">
+                <a href="#" class="contacts__link" title="Telegram">
+                  <svg class="contacts__icon">
+                    <use xlink:href="/images/svg/sprite/sprite.svg#telegram-icon"></use>
+                  </svg>
+                  @venskou
+                </a>
+              </li>
+            </ul>
+            <a href="#" class="profile__cv-download btn btn--with-icon btn--blue-gradient btn--pill" download>
+              <svg class="btn__icon">
+                <use xlink:href="/images/svg/sprite/sprite.svg#download-icon"></use>
+              </svg>
+              Download CV
+            </a>
+          </div>
+        </section>
+      </aside>
+      <main class="page__content">
 
-        </main>
-      </div>
+      </main>
     </div>
   </div>
-  <script src="/js/main.min.js"></script>
+</div>
+<script src="/js/main.min.js"></script>
 </body>
 </html>
