@@ -8,7 +8,17 @@
   white-space: nowrap;
   border-radius: 20px;
 
+  &--sm {
+    padding: 5px 12px;
+  }
+
   &--gray {
     background-color: $gray;
+  }
+
+  &--blue-gradient {
+    color: $white;
+    background-color: $blue;
+    background-image: linear-gradient(to right, $light-blue  0%, $lighten-blue 100%);
   }
 }
