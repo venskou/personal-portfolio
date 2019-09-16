@@ -1,0 +1,10 @@
+.list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  column-count: 2;
+
+  &__item {
+    margin-bottom: 8px;
+  }
+}
