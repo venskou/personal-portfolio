@@ -140,6 +140,8 @@ function buildSVG(done) {
         }, {
           removeComments: true
         }, {
+          removeViewBox: false
+        }, {
           cleanupNumericValues: {
             floatPrecision: 2
           }
