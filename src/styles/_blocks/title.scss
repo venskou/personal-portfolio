@@ -25,4 +25,17 @@
   &--h3 {
     font-size: 14px;
   }
+
+  &--with-icon {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+
+    .title__icon {
+      margin-right: 10px;
+      width: 40px;
+      height: 40px;
+    }
+  }
 }
