@@ -15,6 +15,7 @@ const autoprefixer = require('gulp-autoprefixer');
 const npmDist = require('gulp-npm-dist');
 const rimraf = require('gulp-rimraf');
 const imagemin = require('gulp-imagemin');
+const svgmin = require('gulp-svgmin');
 
 // Config directories
 const dirs = {
@@ -23,13 +24,14 @@ const dirs = {
     styles: 'src/styles/styles.scss',
     js: 'src/js/**/*.js',
     images: 'src/images/**/*.{png,jpg,gif}',
+    svg: 'src/images/**/*.svg',
     vendors: 'src/vendors/'
   },
   dist: {
     html: 'dist/',
     styles: 'dist/styles/',
     js: 'dist/js/',
-    images: 'dist/img/',
+    images: 'dist/images/',
     vendors: 'dist/vendors/'
   },
   watch: {
@@ -37,6 +39,7 @@ const dirs = {
     styles: 'src/styles/**/*.scss',
     js: 'src/js/**/*.js',
     images: 'src/images/**/*.{png,jpg,gif}',
+    svg: 'src/images/**/*.svg',
   },
   clean: ['dist/*']
 };
@@ -127,6 +130,35 @@ function buildImages(done) {
   done();
 }
 
+// Build SVG
+function buildSVG(done) {
+  gulp.src(dirs.src.svg)
+    .pipe(svgmin(function() {
+      return {
+        plugins: [{
+          removeDoctype: true
+        }, {
+          removeComments: true
+        }, {
+          cleanupNumericValues: {
+            floatPrecision: 2
+          }
+        }, {
+          convertColors: {
+            names2hex: true,
+            rgb2hex: true
+          }
+        }, {
+          cleanupIDs: {
+            minify: true
+          }
+        }]
+      }
+    }))
+    .pipe(gulp.dest(dirs.dist.images));
+  done();
+}
+
 // Copy vendors
 function copyVendors(done) {
   gulp.src(npmDist(), { base: './node_modules/' })
@@ -141,6 +173,7 @@ function watch() {
   gulp.watch(dirs.watch.styles, gulp.series(buildStyles, reloadServer));
   gulp.watch(dirs.watch.js, gulp.series(buildJS, reloadServer));
   gulp.watch(dirs.watch.images, gulp.series(buildImages, reloadServer));
+  gulp.watch(dirs.watch.svg, gulp.series(buildSVG, reloadServer));
 }
 
 // Export tasks
@@ -151,8 +184,9 @@ exports.buildHTML = buildHTML;
 exports.buildStyles = buildStyles;
 exports.buildJS = buildJS;
 exports.buildImages = buildImages;
+exports.buildSVG = buildSVG;
 exports.copyVendors = copyVendors;
-const build = gulp.series(clean, copyVendors, gulp.parallel(buildHTML, buildStyles, buildJS, buildImages));
+const build = gulp.series(clean, copyVendors, gulp.parallel(buildHTML, buildStyles, buildJS, buildImages, buildSVG));
 exports.build = build;
 
 // Default task

@@ -31,6 +31,7 @@
     "gulp-rename": "^1.4.0",
     "gulp-rimraf": "^1.0.0",
     "gulp-sass": "^4.0.2",
+    "gulp-svgmin": "^2.2.0",
     "gulp-uglify": "^3.0.2"
   },
   "dependencies": {
