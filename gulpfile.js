@@ -12,17 +12,21 @@ const sass = require('gulp-sass');
 sass.compiler = require('node-sass');
 const cssnano = require('gulp-cssnano');
 const autoprefixer = require('gulp-autoprefixer');
+const npmDist = require('gulp-npm-dist');
+
 // Config directories
 const dirs = {
   src: {
     html: 'src/*.html',
     styles: 'src/styles/styles.scss',
-    js: 'src/js/**/*.js'
+    js: 'src/js/**/*.js',
+    vendors: 'src/vendors/'
   },
   dist: {
     html: 'dist/',
     styles: 'dist/styles/',
     js: 'dist/js/',
+    vendors: 'dist/vendors/'
   },
   watch: {
     html: 'src/*.html',
@@ -89,10 +93,18 @@ function buildJS(done) {
   gulp.src(dirs.src.js)
     .pipe(uglify())
     .pipe(rename({
-      suffix: ".min",
-      extname: ".js"
+      suffix: '.min',
+      extname: '.js'
     }))
     .pipe(gulp.dest(dirs.dist.js));
+  done();
+}
+
+// Copy vendors
+function copyVendors(done) {
+  gulp.src(npmDist(), { base: './node_modules/' })
+    .pipe(gulp.dest(dirs.src.vendors))
+    .pipe(gulp.dest(dirs.dist.vendors));
   done();
 }
 
@@ -109,7 +121,8 @@ exports.watch = watch;
 exports.buildHTML = buildHTML;
 exports.buildStyles = buildStyles;
 exports.buildJS = buildJS;
-const build = gulp.parallel(buildHTML, buildStyles, buildJS);
+exports.copyVendors = copyVendors;
+const build = gulp.series(copyVendors, gulp.parallel(buildHTML, buildStyles, buildJS));
 exports.build = build;
 
 // Default task

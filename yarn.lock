@@ -1893,6 +1893,11 @@ gulp-htmlhint@^2.2.1:
     through2 "^2.0.3"
     vinyl "^2.2.0"
 
+gulp-npm-dist@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/gulp-npm-dist/-/gulp-npm-dist-1.0.3.tgz#a51abaf2162807f9cf1562e168b4a32753cfbe62"
+  integrity sha512-7nank8dgqYXOR6K7VM5VdzvAmCGCaudUEbVKOkCVyu+/EK3QuD8PUJ+UlV/f2QWswN0jDXnHlM7FuT2BUt8P3w==
+
 gulp-plumber@^1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/gulp-plumber/-/gulp-plumber-1.2.1.tgz#d38700755a300b9d372318e4ffb5ff7ced0b2c84"
@@ -3035,6 +3040,11 @@ normalize-url@^1.4.0:
     prepend-http "^1.0.0"
     query-string "^4.1.0"
     sort-keys "^1.0.0"
+
+normalize.css@^8.0.1:
+  version "8.0.1"
+  resolved "https://registry.yarnpkg.com/normalize.css/-/normalize.css-8.0.1.tgz#9b98a208738b9cc2634caacbc42d131c97487bf3"
+  integrity sha512-qizSNPO93t1YUuUhP22btGOo3chcvDFqFaj2TRybP0DMxkHOCTYwp3n34fel4a31ORXy4m1Xq0Gyqpb5m33qIg==
 
 now-and-later@^2.0.0:
   version "2.0.1"

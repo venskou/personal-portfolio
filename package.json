@@ -28,7 +28,11 @@
     "gulp-pretty-html": "^2.0.10",
     "gulp-rename": "^1.4.0",
     "gulp-sass": "^4.0.2",
-    "gulp-uglify": "^3.0.2"
+    "gulp-uglify": "^3.0.2",
+    "gulp-npm-dist": "^1.0.3"
+  },
+  "dependencies": {
+    "normalize.css": "^8.0.1"
   },
   "browserslist": [
     "last 2 versions"
