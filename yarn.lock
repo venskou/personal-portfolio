@@ -2796,6 +2796,11 @@ gulplog@^1.0.0:
   dependencies:
     glogg "^1.0.0"
 
+gumshoejs@^5.1.2:
+  version "5.1.2"
+  resolved "https://registry.yarnpkg.com/gumshoejs/-/gumshoejs-5.1.2.tgz#82748afe83f3b76cbaef029e58322262f853b7d2"
+  integrity sha512-wIRdZGTNkWMP8dY3po8mtNYmCfiSva41LxXIEek2yEHceETpxRmO7DfW7aUbHsuucC9z2oDPu3alN3+00FUqlw==
+
 har-schema@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/har-schema/-/har-schema-2.0.0.tgz#a94c2224ebcac04782a0d9035521f24735b7ec92"
