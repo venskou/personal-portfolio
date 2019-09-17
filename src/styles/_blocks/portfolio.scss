@@ -35,4 +35,26 @@
     font-size: 14px;
     margin-right: 10px;
   }
+
+  &__item-screen {
+    width: 300px;
+    border: 1px solid rgba(230, 230, 230, 0.7);
+    border-top: 24px solid rgba(230, 230, 230, 1);
+    box-shadow: 0 2px 10px 0 rgba($dark-gray, 0.1);
+    border-radius: 3px;
+    position: relative;
+
+    &::before {
+      display: block;
+      position: absolute;
+      content: '';
+      top: -14px;
+      left: 16px;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background-color: $red;
+      box-shadow: 0 0 0 2px $red, 14px 0 0 2px $green, 28px 0 0 2px $yellow;
+    }
+  }
 }
