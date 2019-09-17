@@ -111,6 +111,7 @@ function buildStyles(done) {
 // Build JS
 function buildJS(done) {
   gulp.src(dirs.src.js)
+    .pipe(plumber())
     .pipe(uglify())
     .pipe(rename({
       suffix: '.min',
