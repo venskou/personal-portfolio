@@ -16,9 +16,17 @@
   }
 
   &__sidebar {
+    position: sticky;
+    top: 0;
     flex-shrink: 0;
     width: 280px;
     margin-right: 30px;
+  }
+
+  &__nav {
+    position: sticky;
+    top: 0;
+    z-index: 10;
   }
 
   &__content {
