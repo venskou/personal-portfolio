@@ -5,7 +5,7 @@ var topSection = document.querySelector('#top-section');
 var profile = document.querySelector('.profile');
 
 var sectionActiveClass = 'content__section--active';
-var scrollOffset = nav.getBoundingClientRect().height;
+var scrollOffset = nav.getBoundingClientRect().height + 10;
 
 var scrollSpy = new Gumshoe('.nav__link', {
   navClass: 'nav__item--active',
