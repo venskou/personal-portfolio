@@ -39,7 +39,8 @@
   "dependencies": {
     "gumshoejs": "^5.1.2",
     "normalize.css": "^8.0.1",
-    "smooth-scroll": "^16.1.0"
+    "smooth-scroll": "^16.1.0",
+    "stickybits": "^3.6.7"
   },
   "browserslist": [
     "last 2 versions"
