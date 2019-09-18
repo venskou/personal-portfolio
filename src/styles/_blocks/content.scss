@@ -1,6 +1,4 @@
 .content {
-  overflow: hidden;
-
   &__header {
     padding-top: 20px;
     padding-left: 30px;
@@ -16,5 +14,29 @@
     &--light-gray {
       background-color: $light-gray;
     }
+
+    &--rounded-bottom {
+      border-bottom-left-radius: 15px;
+      border-bottom-right-radius: 15px;
+    }
+
+    &--active {
+      position: relative;
+      z-index: 1;
+      animation-name: pulse;
+      animation-duration: 1s;
+    }
+  }
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba($blue, 0.6);
+  }
+  70% {
+    box-shadow: 0 0 3px 3px rgba($blue, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba($blue, 0);
   }
 }
