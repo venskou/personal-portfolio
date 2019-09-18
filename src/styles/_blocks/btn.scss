@@ -58,6 +58,7 @@
   &--blue-gradient {
     color: $white;
     background-size: 200% auto;
+    background-color: $blue;
     background-image: linear-gradient(to right, $light-blue  0%, $lighten-blue 50%, $blue 100%);
     box-shadow: 0 24px 40px rgba(0, 69, 255, 0.2), 0 8px 16px rgba(0, 69, 255, 0.15);
     transition: 0.4s ease-in-out;
