@@ -1,0 +1,44 @@
+.nav {
+  border-radius: 15px 15px 30px 30px;
+  background-color: $blue;
+  background-image: linear-gradient(to right, $light-blue  0%, $lighten-blue 50%, $blue 100%);
+  box-shadow: 0 24px 40px rgba($blue, 0.2), 0 8px 16px rgba($blue, 0.15);
+
+  &__list {
+    margin: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 0;
+  }
+
+  &__item {
+    margin-right: 48px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &--active {
+      .nav__link {
+        color: $white;
+      }
+    }
+  }
+
+  &__link {
+    color: rgba($white, 0.7);
+    text-decoration: none;
+    font-size: 17px;
+    transition: color 0.1s ease-in;
+
+    &:hover,
+    &:focus {
+      color: $white;
+    }
+  }
+}
