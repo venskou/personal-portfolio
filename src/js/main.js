@@ -2,6 +2,8 @@ var nav = document.querySelector('.nav');
 var firstNavLink = document.querySelector('.nav__item:first-child .nav__link');
 var sections = document.querySelectorAll('.content__section');
 var topSection = document.querySelector('#top-section');
+var profile = document.querySelector('.profile');
+
 var sectionActiveClass = 'content__section--active';
 var scrollOffset = nav.getBoundingClientRect().height;
 
@@ -32,3 +34,19 @@ function setActiveSection(event) {
 };
 
 document.addEventListener('scrollStop', setActiveSection, false);
+
+var stickyProfile = stickybits('.profile', {
+  noStyles: true,
+  useStickyClasses: true,
+  stickyClass: 'profile--sticky',
+  stuckClass: 'profile--sticky-stuck',
+  stickyChangeClass: 'profile--sticky-change'
+});
+
+var stickyNav = stickybits('.nav', {
+  noStyles: true,
+  useStickyClasses: true,
+  stickyClass: 'nav--sticky',
+  stuckClass: 'nav--sticky-stuck',
+  stickyChangeClass: 'nav--sticky-change'
+});

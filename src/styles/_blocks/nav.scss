@@ -1,8 +1,14 @@
 .nav {
   border-radius: 15px 15px 30px 30px;
-  background-color: $blue;
-  background-image: linear-gradient(to right, $light-blue  0%, $lighten-blue 50%, $blue 100%);
-  box-shadow: 0 24px 40px rgba($blue, 0.2), 0 8px 16px rgba($blue, 0.15);
+  background-color: $light-blue;
+  box-shadow: 0 12px 20px rgba($blue, 0.2), 0 4px 8px rgba($blue, 0.15);
+  transition: border-radius 0.2s, background-color 0.2s;
+
+  &--sticky {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    background-color: rgba($light-blue, 0.9);
+  }
 
   &__list {
     margin: 0;
@@ -11,8 +17,8 @@
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: center;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-top: 12px;
+    padding-bottom: 12px;
     padding-left: 0;
   }
 

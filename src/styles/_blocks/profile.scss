@@ -1,4 +1,16 @@
 .profile {
+  position: sticky;
+  top: 90px;
+  transition: top 0.2s ease-in;
+
+  &--sticky,
+  &--sticky-stuck {
+    top: 30px;
+
+    .profile__photo {
+      margin-top: 0;
+    }
+  }
   &__intro {
     text-align: center;
     padding-bottom: 15px;
@@ -6,6 +18,8 @@
 
   &__photo {
     width: 180px;
+    margin-top: -110px;
+    transition: margin-top 0.2s ease-in;
   }
 
   &__photo-container {
