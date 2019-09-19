@@ -1,4 +1,5 @@
 var nav = document.querySelector('.nav');
+var navContainer = nav.parentNode;
 var firstNavLink = document.querySelector('.nav__item:first-child .nav__link');
 var sections = document.querySelectorAll('.content__section');
 var topSection = document.querySelector('#top-section');
@@ -40,7 +41,8 @@ var stickyProfile = stickybits('.profile', {
   useStickyClasses: true,
   stickyClass: 'profile--sticky',
   stuckClass: 'profile--sticky-stuck',
-  stickyChangeClass: 'profile--sticky-change'
+  stickyChangeClass: 'profile--sticky-change',
+  useGetBoundingClientRect: true
 });
 
 var stickyNav = stickybits('.nav', {
@@ -48,5 +50,19 @@ var stickyNav = stickybits('.nav', {
   useStickyClasses: true,
   stickyClass: 'nav--sticky',
   stuckClass: 'nav--sticky-stuck',
-  stickyChangeClass: 'nav--sticky-change'
+  stickyChangeClass: 'nav--sticky-change',
+  useGetBoundingClientRect: true
 });
+
+svg4everybody();
+
+if (!Modernizr.csspositionsticky) {
+  function setNavWidth() {
+    stickyNav.update();
+    var navWidth = navContainer.offsetWidth;
+    nav.style.width = navWidth + 'px';
+  }
+  setNavWidth();
+  window.addEventListener("resize", setNavWidth);
+}
+

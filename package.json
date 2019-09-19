@@ -26,6 +26,7 @@
     "gulp-cssnano": "^2.1.3",
     "gulp-htmlhint": "^2.2.1",
     "gulp-imagemin": "^6.1.0",
+    "gulp-modernizr": "^3.3.0",
     "gulp-npm-dist": "^1.0.3",
     "gulp-plumber": "^1.2.1",
     "gulp-pretty-html": "^2.0.10",
@@ -40,7 +41,8 @@
     "gumshoejs": "^5.1.2",
     "normalize.css": "^8.0.1",
     "smooth-scroll": "^16.1.0",
-    "stickybits": "^3.6.7"
+    "stickybits": "^3.6.7",
+    "svg4everybody": "^2.1.9"
   },
   "browserslist": [
     "last 2 versions"

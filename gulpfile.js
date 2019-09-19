@@ -18,6 +18,7 @@ const imagemin = require('gulp-imagemin');
 const svgmin = require('gulp-svgmin');
 const svgstore = require('gulp-svgstore');
 const cheerio = require('gulp-cheerio');
+const modernizr = require('gulp-modernizr');
 
 // Config directories
 const dirs = {
@@ -118,6 +119,21 @@ function buildJS(done) {
       extname: '.js'
     }))
     .pipe(gulp.dest(dirs.dist.js));
+  done();
+}
+
+function modernizrJS(done) {
+  gulp.src(dirs.src.js)
+    .pipe(modernizr('modernizr.min.js', {
+      'options': ['setClasses'],
+      'tests': [
+        [
+          'csspositionsticky',
+        ]
+      ],
+    }))
+    .pipe(uglify())
+    .pipe(gulp.dest(dirs.dist.vendors));
   done();
 }
 
@@ -243,11 +259,12 @@ exports.clean = clean;
 exports.buildHTML = buildHTML;
 exports.buildStyles = buildStyles;
 exports.buildJS = buildJS;
+exports.modernizrJS = modernizrJS;
 exports.buildImages = buildImages;
 exports.buildSVG = buildSVG;
 exports.buildSVGSprite = buildSVGSprite;
 exports.copyVendors = copyVendors;
-const build = gulp.series(clean, copyVendors, gulp.parallel(buildHTML, buildStyles, buildJS, buildImages, buildSVG, buildSVGSprite));
+const build = gulp.series(clean, copyVendors, gulp.parallel(buildHTML, buildStyles, modernizrJS, buildJS, buildImages, buildSVG, buildSVGSprite));
 exports.build = build;
 
 // Default task
