@@ -27,8 +27,9 @@ const dirs = {
     html: 'src/*.html',
     styles: 'src/styles/styles.scss',
     js: 'src/js/**/*.js',
-    images: 'src/images/**/*.{png,jpg,gif}',
-    svg: ['src/images/**/*.svg', '!src/images/svg/sprite/**/*.svg'],
+    images: ['src/images/**/*.{png,jpg,gif}', '!src/images/favicon/**/*.*'],
+    svg: ['src/images/**/*.svg', '!src/images/svg/sprite/**/*.svg', '!src/images/favicon/**/*.*'],
+    favicon: 'src/images/favicon/**/*.*',
     svgSprite: 'src/images/svg/sprite/**/*.svg',
     vendors: 'src/vendors/'
   },
@@ -37,6 +38,7 @@ const dirs = {
     styles: 'dist/styles/',
     js: 'dist/js/',
     images: 'dist/images/',
+    favicon: 'dist/images/favicon/',
     svgSprite: 'dist/images/svg/sprite/',
     vendors: 'dist/vendors/'
   },
@@ -59,6 +61,7 @@ function server(done) {
       directory: true,
     },
     logPrefix: 'localhost',
+    tunnel: 'trololo',
     notify: false,
   });
   done();
@@ -127,6 +130,7 @@ function buildJS(done) {
   done();
 }
 
+// Modernizr JS
 function modernizrJS(done) {
   gulp.src(dirs.src.js)
     .pipe(modernizr('modernizr.min.js', {
@@ -154,6 +158,13 @@ function buildImages(done) {
       })
     ]))
     .pipe(gulp.dest(dirs.dist.images));
+  done();
+}
+
+// Copy favicon
+function copyFavicon(done) {
+  gulp.src(dirs.src.favicon)
+    .pipe(gulp.dest(dirs.dist.favicon));
   done();
 }
 
@@ -266,10 +277,11 @@ exports.buildStyles = buildStyles;
 exports.buildJS = buildJS;
 exports.modernizrJS = modernizrJS;
 exports.buildImages = buildImages;
+exports.copyFavicon = copyFavicon;
 exports.buildSVG = buildSVG;
 exports.buildSVGSprite = buildSVGSprite;
 exports.copyVendors = copyVendors;
-const build = gulp.series(clean, copyVendors, gulp.parallel(buildHTML, buildStyles, modernizrJS, buildJS, buildImages, buildSVG, buildSVGSprite));
+const build = gulp.series(clean, copyVendors, gulp.parallel(buildHTML, buildStyles, modernizrJS, buildJS, buildImages, copyFavicon, buildSVG, buildSVGSprite));
 exports.build = build;
 
 // Default task
