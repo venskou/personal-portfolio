@@ -20,7 +20,6 @@ body {
   color: $darken-gray;
   overflow-x: hidden;
   min-width: $body-min-width;
-  height: 100%;
 }
 
 a {
@@ -34,6 +33,18 @@ a {
 
 p {
   margin-top: 0;
+}
+
+html.no-scroll {
+  overflow: hidden;
+}
+
+body.no-scroll {
+  overflow: visible;
+}
+
+:focus {
+  outline-color: rgb(229, 151, 0);
 }
 
 @import '_blocks/blocks';
