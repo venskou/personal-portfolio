@@ -19,6 +19,7 @@ const svgmin = require('gulp-svgmin');
 const svgstore = require('gulp-svgstore');
 const cheerio = require('gulp-cheerio');
 const modernizr = require('gulp-modernizr');
+const babel = require('gulp-babel');
 
 // Config directories
 const dirs = {
@@ -113,6 +114,10 @@ function buildStyles(done) {
 function buildJS(done) {
   gulp.src(dirs.src.js)
     .pipe(plumber())
+    .pipe(babel({
+      presets: ['@babel/env']
+    }))
+    .pipe(gulp.dest(dirs.dist.js))
     .pipe(uglify())
     .pipe(rename({
       suffix: '.min',
