@@ -4,7 +4,15 @@
   list-style: none;
   column-count: 2;
 
+  @media (max-width: $xs-max-width) {
+    column-count: 1;
+  }
+
   &__item {
     margin-bottom: 8px;
+
+    .badge {
+      white-space: initial;
+    }
   }
 }

@@ -11,6 +11,10 @@
     padding-left: 30px;
     padding-right: 30px;
 
+    @media (max-width: $xs-max-width) {
+      padding: 20px;
+    }
+
     &--light-gray {
       background-color: $light-gray;
     }

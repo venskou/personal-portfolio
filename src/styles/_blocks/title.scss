@@ -16,6 +16,12 @@
       height: 4px;
       background-color: $blue;
     }
+
+    @media (max-width: $xs-max-width) {
+      font-size: 28px;
+      padding-bottom: 10px;
+      margin-bottom: 18px;
+    }
   }
 
   &--h2 {

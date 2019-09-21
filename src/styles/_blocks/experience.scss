@@ -4,11 +4,20 @@
   flex-wrap: nowrap;
   align-items: flex-start;
 
+  @media (max-width: $xs-max-width) {
+    flex-direction: column;
+  }
+
   &__partition {
     flex-basis: 50%;
     flex-grow: 1;
     flex-shrink: 1;
     padding-right: 30px;
+
+    @media (max-width: $xs-max-width) {
+      padding-right: 0;
+      margin-bottom: 10px;
+    }
   }
 
   &__title {

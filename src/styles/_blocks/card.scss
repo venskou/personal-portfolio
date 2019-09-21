@@ -7,12 +7,11 @@
     box-shadow: none;
   }
 
-  &--unrounded-top {
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-  }
-
   &__body {
     padding: 30px;
+
+    @media (max-width: $xs-max-width) {
+      padding: 20px;
+    }
   }
 }

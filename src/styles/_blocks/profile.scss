@@ -3,7 +3,8 @@
   top: 90px;
   transition: top 0.2s ease-in;
 
-  @media (max-width: $md-max-width) {
+  @media (max-width: $md-max-width), (max-height: $max-height) {
+    position: static !important;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
@@ -30,13 +31,14 @@
     text-align: center;
     padding-bottom: 15px;
 
-    @media (max-width: $md-max-width) {
+    @media (max-width: $md-max-width), (max-height: $max-height) {
       flex-grow: 1;
     }
   }
 
   &__photo {
     width: 180px;
+    height: 180px;
     margin-top: -110px;
     transition: margin-top 0.2s ease-in;
   }
@@ -48,7 +50,7 @@
   &__contacts {
     background-color: $light-gray;
 
-    @media (max-width: $md-max-width) {
+    @media (max-width: $md-max-width), (max-height: $max-height) {
       flex-grow: 1;
     }
   }
