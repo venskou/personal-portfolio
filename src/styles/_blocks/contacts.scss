@@ -1,7 +1,9 @@
 .contacts {
-  margin: 0;
-  padding: 0;
-  list-style: none;
+  &__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
 
   &__item {
     display: block;
