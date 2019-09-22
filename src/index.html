@@ -1,13 +1,33 @@
 <!doctype html>
-<html lang="ru">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport"
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="title" content="Uladzislau Vensko | Front-end Developer">
+  <meta name="description" content="Personal portfolio website">
+  <meta name="keywords" content="frontend, development, portfolio, cv, resume">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://venskou.name/">
+  <meta property="og:title" content="Uladzislau Vensko | Front-end Developer">
+  <meta property="og:description" content="Personal portfolio website">
+  <meta property="og:image" content="https://venskou.name/images/photo.jpg">
+
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16x16.png">
+  <link rel="manifest" href="/images/favicon/site.webmanifest">
+  <link rel="mask-icon" href="/images/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="theme-color" content="#ffffff">
+
   <title>Uladzislau Vensko | Front-end Developer</title>
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/styles/styles.css">
+  <link rel="stylesheet" href="/styles/styles.min.css">
 </head>
 <body>
 <div class="page" id="about">
@@ -34,7 +54,7 @@
             <p class="profile__specialty badge badge--gray">Front-end Developer</p>
             <ul class="profile__socials social">
               <li class="social__item">
-                <a href="#" class="social__link" title="LinkedIn">
+                <a href="https://www.linkedin.com/in/venskou/" class="social__link" title="LinkedIn" target="_blank">
                   <svg class="social__icon">
                     <use xlink:href="/images/svg/sprite/sprite.svg#linkedin-icon"></use>
                   </svg>
@@ -42,7 +62,7 @@
                 </a>
               </li>
               <li class="social__item">
-                <a href="#" class="social__link" title="GitHub">
+                <a href="https://github.com/venskou" class="social__link" title="GitHub" target="_blank">
                   <svg class="social__icon">
                     <use xlink:href="/images/svg/sprite/sprite.svg#github-icon"></use>
                   </svg>
@@ -50,7 +70,7 @@
                 </a>
               </li>
               <li class="social__item">
-                <a href="#" class="social__link" title="vkontakte.ru">
+                <a href="https://vk.com/venskou" class="social__link" title="vk.com" target="_blank">
                   <svg class="social__icon">
                     <use xlink:href="/images/svg/sprite/sprite.svg#vk-icon"></use>
                   </svg>
@@ -63,7 +83,7 @@
             <div class="card__body profile__contacts-container">
               <ul class="contacts">
                 <li class="contacts__item">
-                  <a href="#" class="contacts__link" title="Location">
+                  <a href="https://yandex.by/maps/-/CGWabTNm" class="contacts__link" title="Location" target="_blank">
                     <svg class="contacts__icon">
                       <use xlink:href="/images/svg/sprite/sprite.svg#map-pin-icon"></use>
                     </svg>
@@ -71,7 +91,7 @@
                   </a>
                 </li>
                 <li class="contacts__item">
-                  <a href="#" class="contacts__link" title="Contact phone">
+                  <a href="tel:+375259075437" class="contacts__link" title="Contact phone">
                     <svg class="contacts__icon">
                       <use xlink:href="/images/svg/sprite/sprite.svg#mobile-icon"></use>
                     </svg>
@@ -79,7 +99,7 @@
                   </a>
                 </li>
                 <li class="contacts__item">
-                  <a href="#" class="contacts__link" title="Email">
+                  <a href="mailto:ulad.vensko@gmail.com" class="contacts__link" title="Email">
                     <svg class="contacts__icon">
                       <use xlink:href="/images/svg/sprite/sprite.svg#mail-icon"></use>
                     </svg>
@@ -87,7 +107,7 @@
                   </a>
                 </li>
                 <li class="contacts__item">
-                  <a href="#" class="contacts__link" title="Skype">
+                  <a href="skype:live:ulad.vensko?chat" class="contacts__link" title="Skype">
                     <svg class="contacts__icon">
                       <use xlink:href="/images/svg/sprite/sprite.svg#skype-icon"></use>
                     </svg>
@@ -95,7 +115,7 @@
                   </a>
                 </li>
                 <li class="contacts__item">
-                  <a href="#" class="contacts__link" title="Telegram">
+                  <a href="https://telegram.me/venskou" class="contacts__link" title="Telegram" target="_blank">
                     <svg class="contacts__icon">
                       <use xlink:href="/images/svg/sprite/sprite.svg#telegram-icon"></use>
                     </svg>
@@ -103,7 +123,7 @@
                   </a>
                 </li>
               </ul>
-              <a href="#" class="profile__cv-download btn btn--with-icon btn--blue-gradient btn--pill" download>
+              <a href="/files/CV_Ulad_Vensko_Frontend_Developer.pdf" class="profile__cv-download btn btn--with-icon btn--blue-gradient btn--pill" download="CV_Ulad_Vensko_Frontend_Developer.pdf">
                 <svg class="btn__icon">
                   <use xlink:href="/images/svg/sprite/sprite.svg#download-icon"></use>
                 </svg>
@@ -136,19 +156,10 @@
             </ul>
           </nav>
           <main class="content">
-            <section class="content__section" id="top-section">
+            <section class="content__section about" id="top-section">
               <h1 class="title title--h1">About Me</h1>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam autem beatae consectetur consequatur
-                deserunt eaque eius eligendi explicabo id itaque omnis quae quam ratione, recusandae repellat soluta,
-                totam ut veniam!
-              </p>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam culpa distinctio dolorem dolores
-                dolorum, expedita illo ipsum iste libero molestiae neque numquam, odit pariatur porro quis reiciendis
-                rem. Aliquam aliquid aperiam asperiores eos harum impedit laborum omnis placeat quam quia. Ad, aperiam
-                consequuntur cupiditate deleniti est laborum nam soluta tenetur voluptatum. Alias aspernatur consequatur
-                eius nam sit? Rem, sit, ut.
+              <p class="about__content">
+                Front-end Developer with 2 years of experience in developing websites and web applications using HTML, CSS and JavaScript. When dealing with a project I pay attention to the smallest details, solve problems with patience. Development help me to satisfy my desire towards constant self growth. Self-motivated, hardworking, accept the criticism.
               </p>
             </section>
             <section class="content__section content__section--light-gray" id="skills">
@@ -159,34 +170,31 @@
                 <div class="card__body">
                   <ul class="list">
                     <li class="list__item">
-                      <span class="badge badge--blue-gradient badge--sm">Lorem</span>
+                      <span class="badge badge--blue-gradient badge--sm">HTML / CSS</span>
                     </li>
                     <li class="list__item">
-                      <span class="badge badge--blue-gradient badge--sm">Lore</span>
+                      <span class="badge badge--blue-gradient badge--sm">Responsive Markup</span>
+                    </li>
+                    <li class="list__item">
+                      <span class="badge badge--blue-gradient badge--sm">BEM</span>
+                    </li>
+                    <li class="list__item">
+                      <span class="badge badge--blue-gradient badge--sm">Bootstrap</span>
                     </li>
                     <li class="list__item">
                       <span class="badge badge--blue-gradient badge--sm">SASS (SCSS)</span>
                     </li>
                     <li class="list__item">
-                      <span class="badge badge--blue-gradient badge--sm">JavaScript (ES6), jQuery</span>
+                      <span class="badge badge--blue-gradient badge--sm">JavaScript / jQuery</span>
                     </li>
                     <li class="list__item">
-                      <span class="badge badge--blue-gradient badge--sm">React, Redux</span>
+                      <span class="badge badge--blue-gradient badge--sm">Git / GitHub</span>
                     </li>
                     <li class="list__item">
-                      <span class="badge badge--blue-gradient badge--sm">Vue, Angular</span>
+                      <span class="badge badge--blue-gradient badge--sm">npm, Yarn, Gulp</span>
                     </li>
                     <li class="list__item">
-                      <span class="badge badge--blue-gradient badge--sm">NPM, Yarn, Gulp</span>
-                    </li>
-                    <li class="list__item">
-                      <span class="badge badge--blue-gradient badge--sm">Git/Github</span>
-                    </li>
-                    <li class="list__item">
-                      <span class="badge badge--blue-gradient badge--sm">Photoshop, Zeplin, Figma</span>
-                    </li>
-                    <li class="list__item">
-                      <span class="badge badge--blue-gradient badge--sm">Lorem</span>
+                      <span class="badge badge--blue-gradient badge--sm">Photoshop</span>
                     </li>
                   </ul>
                 </div>
@@ -202,17 +210,28 @@
                 </h2>
                 <ul class="experience__timeline timeline">
                   <li class="timeline__item">
-                    <h3 class="timeline__title">BSUIR</h3>
-                    <p class="timeline__period">2014-2019</p>
-                    <p class="timeline__description">
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias animi doloribus eius
-                      necessitatibus neque nesciunt, pariatur perferendis saepe sit suscipit?
-                    </p>
+                    <h3 class="timeline__title">Mediatec <span class="timeline__title-note">- Junior Front-end Developer</span></h3>
+                    <a class="timeline__link" href="https://www.mediatec.org/" target="_blank">mediatec.org</a>
+                    <p class="timeline__period">07.2017 - current time</p>
+                    <div class="timeline__description">
+                      <ul class="timeline__list">
+                        <li class="timeline__list-item">Creating HTML layouts with different level of complexity;</li>
+                        <li class="timeline__list-item">Leveraging Bootstrap for responsive layouts creation;</li>
+                        <li class="timeline__list-item">Building new UI modules and their functionality for themeforest admin template (HTML,
+                          React, Vue, Angular versions);
+                        </li>
+                        <li class="timeline__list-item">Developing UI using React and Ant.design;</li>
+                      </ul>
+                      <p>Projects:
+                        <a class="timeline__link" href="https://cleanuitemplate.com/" target="_blank">cleanuitemplate.com</a>,
+                        <a class="timeline__link" href="https://airuitemplate.com/" target="_blank">airuitemplate.com</a>
+                      </p>
+                    </div>
                   </li>
                 </ul>
               </section>
               <section class="experience__partition">
-                <h2 class="title title--h2 title--with-icon">
+                <h2 class="title title--h2 title--with-icon experience__title">
                   <svg class="title__icon">
                     <use xlink:href="/images/svg/sprite/sprite.svg#education-icon"></use>
                   </svg>
@@ -220,20 +239,14 @@
                 </h2>
                 <ul class="experience__timeline timeline">
                   <li class="timeline__item">
-                    <h3 class="timeline__title">BSUIR</h3>
-                    <p class="timeline__period">2014-2019</p>
-                    <p class="timeline__description">
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias animi doloribus eius
-                      necessitatibus neque nesciunt, pariatur perferendis saepe sit suscipit?
-                    </p>
+                    <h3 class="timeline__title">Belarusian State University of Informatics and Radioelectronics (BSUIR)</h3>
+                    <a class="timeline__link" href="https://www.bsuir.by/index.jsp?resID=100229&lang=en" target="_blank">bsuir.by</a>
+                    <p class="timeline__period">2014 - 2019</p>
                   </li>
                   <li class="timeline__item">
-                    <h3 class="timeline__title">MGVRK</h3>
-                    <p class="timeline__period">2010-2014</p>
-                    <p class="timeline__description">
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias animi doloribus eius
-                      necessitatibus neque nesciunt, pariatur perferendis saepe sit suscipit?
-                    </p>
+                    <h3 class="timeline__title">Minsk Radio Engineering College</h3>
+                    <a class="timeline__link" href="http://www.mrk-bsuir.by/en" target="_blank">mrk-bsuir.by</a>
+                    <p class="timeline__period">2010 - 2014</p>
                   </li>
                 </ul>
               </section>
