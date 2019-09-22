@@ -44,13 +44,54 @@
     margin-bottom: 2px;
   }
 
+  &__title-note {
+    font-weight: 400;
+    font-size: 15px;
+  }
+
+  &__link {
+    color: $darken-gray;
+    display: inline-block;
+    vertical-align: top;
+    margin-bottom: 5px;
+    font-size: 14px;
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+      color: $blue;
+    }
+  }
+
   &__period {
     color: $dark-gray;
-    font-size: 15px;
-    margin-bottom: 2px;
+    font-size: 13px;
+    margin-bottom: 8px;
   }
 
   &__description {
     font-size: 14px;
+  }
+
+  &__list {
+    margin: 0;
+    margin-bottom: 8px;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__list-item {
+
+    //text-indent: -5px;
+    position: relative;
+    padding-left: 20px;
+
+    &::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: $light-blue;
+      //text-indent: -5px;
+    }
   }
 }
