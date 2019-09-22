@@ -54,7 +54,7 @@
     color: $darken-gray;
     margin-left: 310px;
 
-    @media (max-width: $md-max-width) {
+    @media (max-width: $md-max-width), (max-height: $max-height) {
       margin-left: 0;
     }
   }
