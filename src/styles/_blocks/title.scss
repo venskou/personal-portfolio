@@ -2,6 +2,10 @@
   margin: 0;
   position: relative;
 
+  &--hidden {
+    @include visually-hidden();
+  }
+
   &--h1 {
     font-size: 32px;
     padding-bottom: 13px;
