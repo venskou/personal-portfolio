@@ -52,6 +52,10 @@
       }
     }
 
+    .nav__list {
+      visibility: visible;
+    }
+
     .nav__item {
       transform: scale(1) translateY(0px);
       opacity: 1;
@@ -131,6 +135,7 @@
     padding-left: 0;
 
     @media (max-width: $xs-max-width) {
+      visibility: hidden;
       position: absolute;
       top: 0;
       left: 0;

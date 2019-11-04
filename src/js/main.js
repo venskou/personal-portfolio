@@ -2,6 +2,7 @@ const html = document.documentElement;
 const body = document.body;
 const nav = document.querySelector('.nav');
 const navToggle = document.querySelector('.nav__toggle');
+const navToggleText = navToggle.querySelector('.nav__toggle-text');
 const navContainer = nav.parentNode;
 const navLinks = nav.querySelectorAll('.nav__link');
 const firstNavLink = document.querySelector('.nav__item:first-child .nav__link');
@@ -67,6 +68,7 @@ function toggleNav() {
   body.classList.toggle('no-scroll');
   html.classList.toggle('no-scroll');
   isMenuOpen = !isMenuOpen;
+  navToggleText.textContent = isMenuOpen ? 'Close menu' : 'Open menu';
 }
 
 function setNavWidth() {
@@ -82,15 +84,29 @@ if (!Modernizr.csspositionsticky) {
 }
 
 function linksEvents() {
-  navLinks.forEach(link => {
+  const lastLinkIndex = navLinks.length - 1;
+  let focusedLinkIndex = 0;
+
+  navLinks.forEach((link, index) => {
     link.addEventListener('click', () => {
-      if (isMobile) {
-        const linkTarget = link.getAttribute('href');
-        link.blur();
-        if (isMenuOpen) {
-          toggleNav();
-        }
-        smoothScroll.animateScroll(linkTarget);
+      if (!isMobile) return;
+      const linkTarget = link.getAttribute('href');
+      link.blur();
+      if (isMenuOpen) {
+        toggleNav();
+      }
+      smoothScroll.animateScroll(linkTarget);
+    });
+
+    link.addEventListener('keyup', (e) => {
+      if (!isMobile && e.keyCode !== 9) return;
+      focusedLinkIndex = index;
+    });
+
+    link.addEventListener('blur', (e) => {
+    if (!isMobile && e.keyCode !== 9) return;
+      if (focusedLinkIndex === lastLinkIndex) {
+        toggleNav()
       }
     });
   });
