@@ -20,7 +20,6 @@
 npm-debug.log
 testem.log
 /typings
-
 # e2e
 /e2e/*.js
 /e2e/*.map
@@ -37,8 +36,13 @@ yarn-error.log
 dist/*
 src/images/**/*.*
 src/vendors/**/*.*
-.prettierignore
-.editorconfig
 .gitignore
 .gitkeep
+.editorconfig
+.prettierignore
+.eslintrc
+.eslintignore
+.stylelintrc
+.stylelintignore
 yarn.lock
+package-lock.json
