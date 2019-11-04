@@ -1,5 +1,5 @@
 const html = document.documentElement;
-const body = document.body;
+const {body} = document;
 const nav = document.querySelector('.nav');
 const navToggle = document.querySelector('.nav__toggle');
 const navToggleText = navToggle.querySelector('.nav__toggle-text');
@@ -14,19 +14,21 @@ const mobileQuery = window.matchMedia('(max-width: 575.98px)');
 let isMobile = mobileQuery.matches;
 let isMenuOpen = nav.classList.contains('nav--open');
 
-const scrollOffset = nav.getBoundingClientRect().height + 10;
+function getScrollOffset() {
+  return nav.getBoundingClientRect().height + 10;
+}
 
 const scrollSpyOptions = {
   navClass: 'nav__item--active',
   reflow: true,
-  offset: () => isMobile ? 0 : scrollOffset,
+  offset: () => (isMobile ? 0 : getScrollOffset()),
   events: false,
 };
 
 const smoothScrollOptions = {
   speed: 300,
   speedAsDuration: true,
-  offset: () => isMobile ? 0 : scrollOffset,
+  offset: () => (isMobile ? 0 : getScrollOffset()),
 };
 
 const stickyProfileOptions = {
@@ -35,7 +37,7 @@ const stickyProfileOptions = {
   stickyClass: 'profile--sticky',
   stuckClass: 'profile--sticky-stuck',
   stickyChangeClass: 'profile--sticky-change',
-  useGetBoundingClientRect: true
+  useGetBoundingClientRect: true,
 };
 
 const stickyNavOptions = {
@@ -44,7 +46,7 @@ const stickyNavOptions = {
   stickyClass: 'nav--sticky',
   stuckClass: 'nav--sticky-stuck',
   stickyChangeClass: 'nav--sticky-change',
-  useGetBoundingClientRect: true
+  useGetBoundingClientRect: true,
 };
 
 // eslint-disable-next-line no-unused-vars
@@ -57,7 +59,7 @@ const stickyNav = stickybits('.nav', stickyNavOptions);
 function setActiveSection(event) {
   const toggleHash = event.detail.toggle.getAttribute('href');
   const firstNavLinkHash = firstNavLink.getAttribute('href');
-  const targetSection = (toggleHash !== firstNavLinkHash) ? event.detail.anchor : topSection;
+  const targetSection = toggleHash !== firstNavLinkHash ? event.detail.anchor : topSection;
 
   sections.forEach(section => section.classList.remove(sectionActiveClass));
   targetSection.classList.add(sectionActiveClass);
@@ -98,15 +100,15 @@ function linksEvents() {
       smoothScroll.animateScroll(linkTarget);
     });
 
-    link.addEventListener('keyup', (e) => {
+    link.addEventListener('keyup', e => {
       if (!isMobile && e.keyCode !== 9) return;
       focusedLinkIndex = index;
     });
 
-    link.addEventListener('blur', (e) => {
-    if (!isMobile && e.keyCode !== 9) return;
+    link.addEventListener('blur', e => {
+      if (!isMobile && e.keyCode !== 9) return;
       if (focusedLinkIndex === lastLinkIndex) {
-        toggleNav()
+        toggleNav();
       }
     });
   });
@@ -114,6 +116,7 @@ function linksEvents() {
 
 function screenTest(query) {
   stickyNav.update();
+
   isMobile = query.matches;
   if (!isMobile && isMenuOpen) {
     toggleNav();
