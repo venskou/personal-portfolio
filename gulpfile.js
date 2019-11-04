@@ -263,6 +263,7 @@ function watch() {
   gulp.watch(dirs.watch.styles, gulp.series(buildStyles, reloadServer));
   gulp.watch(dirs.watch.js, gulp.series(buildJS, reloadServer));
   gulp.watch(dirs.watch.images, gulp.series(buildImages, reloadServer));
+  gulp.watch(dirs.watch.favicon, gulp.series(copyFavicon, reloadServer));
   gulp.watch(dirs.watch.svg, gulp.series(buildSVG, reloadServer));
   gulp.watch(dirs.watch.svgSprite, gulp.series(buildSVGSprite, reloadServer));
 }
