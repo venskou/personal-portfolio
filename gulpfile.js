@@ -61,7 +61,6 @@ function server(done) {
       directory: true,
     },
     logPrefix: 'localhost',
-    tunnel: 'trololo',
     notify: false,
   });
   done();
