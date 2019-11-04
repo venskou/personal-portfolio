@@ -1,5 +1,5 @@
 const html = document.documentElement;
-const {body} = document;
+const { body } = document;
 const nav = document.querySelector('.nav');
 const navToggle = document.querySelector('.nav__toggle');
 const navToggleText = navToggle.querySelector('.nav__toggle-text');

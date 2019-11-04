@@ -19,6 +19,6 @@
   &--blue-gradient {
     color: $white;
     background-color: $blue;
-    background-image: linear-gradient(to right, $light-blue  0%, $lighten-blue 100%);
+    background-image: linear-gradient(to right, $light-blue 0%, $lighten-blue 100%);
   }
 }

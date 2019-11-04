@@ -14,19 +14,6 @@
     flex-direction: column;
   }
 
-  &--sticky,
-  &--sticky-stuck {
-    top: 30px;
-
-    .profile__photo {
-      margin-top: 0;
-
-      @media (max-width: $md-max-width) {
-        margin-top: -110px;
-      }
-    }
-  }
-
   &__intro {
     text-align: center;
     padding-bottom: 15px;
@@ -78,5 +65,18 @@
 
   &__cv-download {
     margin-top: 20px;
+  }
+
+  &--sticky,
+  &--sticky-stuck {
+    top: 30px;
+
+    .profile__photo {
+      margin-top: 0;
+
+      @media (max-width: $md-max-width) {
+        margin-top: -110px;
+      }
+    }
   }
 }

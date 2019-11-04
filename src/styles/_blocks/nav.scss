@@ -23,54 +23,6 @@
     will-change: left, background-color;
   }
 
-  &--open {
-    pointer-events: all;
-    left: 0;
-    background-color: $white;
-    transition: left 0.4s ease-in-out, background-color 0.4s ease-in-out;
-
-    .nav__toggle {
-      box-shadow: 0 0 0 1px rgba($light-blue, 0.5);
-      background-color: $white;
-      background-image: none;
-    }
-
-    .nav__toggle-lines {
-      background-color: transparent;
-
-      &::before,
-      &::after {
-        background-color: $light-blue;
-      }
-
-      &::before {
-        transform: rotate(45deg) translate(5px, 4px);
-      }
-
-      &::after {
-        transform: rotate(-45deg) translate(4px, -4px);
-      }
-    }
-
-    .nav__list {
-      visibility: visible;
-    }
-
-    .nav__item {
-      transform: scale(1) translateY(0px);
-      opacity: 1;
-      transition: transform 0.5s cubic-bezier(0.4, 0.01, 0.165, 0.99), opacity 0.6s cubic-bezier(0.4, 0.01, 0.165, 0.99);
-
-
-      @for $i from 1 through 4 {
-        &:nth-child(#{$i}) {
-          transition-delay: #{0.15 + (0.05 * $i)}s;
-        }
-      }
-    }
-
-  }
-
   &__toggle {
     display: none;
     position: fixed;
@@ -151,6 +103,28 @@
     }
   }
 
+  &__link {
+    color: rgba($white, 0.7);
+    text-decoration: none;
+    font-size: 17px;
+    transition: color 0.1s ease-in;
+
+    &:hover,
+    &:focus {
+      color: $white;
+    }
+
+    @media (max-width: $xs-max-width) {
+      font-size: 24px;
+      color: rgba($darken-gray, 0.6);
+
+      &:hover,
+      &:focus {
+        color: $darken-gray;
+      }
+    }
+  }
+
   &__item {
     margin-right: 48px;
 
@@ -178,24 +152,49 @@
     }
   }
 
-  &__link {
-    color: rgba($white, 0.7);
-    text-decoration: none;
-    font-size: 17px;
-    transition: color 0.1s ease-in;
+  &--open {
+    pointer-events: all;
+    left: 0;
+    background-color: $white;
+    transition: left 0.4s ease-in-out, background-color 0.4s ease-in-out;
 
-    &:hover,
-    &:focus {
-      color: $white;
+    .nav__toggle {
+      box-shadow: 0 0 0 1px rgba($light-blue, 0.5);
+      background-color: $white;
+      background-image: none;
     }
 
-    @media (max-width: $xs-max-width) {
-      font-size: 24px;
-      color: rgba($darken-gray, 0.6);
+    .nav__toggle-lines {
+      background-color: transparent;
 
-      &:hover,
-      &:focus {
-        color: $darken-gray;
+      &::before,
+      &::after {
+        background-color: $light-blue;
+      }
+
+      &::before {
+        transform: rotate(45deg) translate(5px, 4px);
+      }
+
+      &::after {
+        transform: rotate(-45deg) translate(4px, -4px);
+      }
+    }
+
+    .nav__list {
+      visibility: visible;
+    }
+
+    .nav__item {
+      transform: scale(1) translateY(0);
+      opacity: 1;
+      transition: transform 0.5s cubic-bezier(0.4, 0.01, 0.165, 0.99),
+        opacity 0.6s cubic-bezier(0.4, 0.01, 0.165, 0.99);
+
+      @for $i from 1 through 4 {
+        &:nth-child(#{$i}) {
+          transition-delay: #{0.15 + (0.05 * $i)}s;
+        }
       }
     }
   }

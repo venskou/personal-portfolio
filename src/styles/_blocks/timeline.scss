@@ -47,6 +47,7 @@
   &__title-note {
     font-weight: 400;
     font-size: 15px;
+    font-style: italic;
   }
 
   &__link {
@@ -81,8 +82,6 @@
   }
 
   &__list-item {
-
-    //text-indent: -5px;
     position: relative;
     padding-left: 20px;
 
@@ -91,7 +90,6 @@
       position: absolute;
       left: 0;
       color: $light-blue;
-      //text-indent: -5px;
     }
   }
 }
