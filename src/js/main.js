@@ -1,39 +1,34 @@
-var body = document.querySelector('body');
-var html = document.querySelector('html');
-var nav = document.querySelector('.nav');
-var navToggle = document.querySelector('.nav__toggle');
-var navContainer = nav.parentNode;
-var navLinks = nav.querySelectorAll('.nav__link');
-var firstNavLink = document.querySelector('.nav__item:first-child .nav__link');
-var sections = document.querySelectorAll('.content__section');
-var topSection = document.querySelector('#top-section');
-var sectionActiveClass = 'content__section--active';
-var profile = document.querySelector('.profile');
+const html = document.documentElement;
+const body = document.body;
+const nav = document.querySelector('.nav');
+const navToggle = document.querySelector('.nav__toggle');
+const navContainer = nav.parentNode;
+const navLinks = nav.querySelectorAll('.nav__link');
+const firstNavLink = document.querySelector('.nav__item:first-child .nav__link');
+const sections = document.querySelectorAll('.content__section');
+const topSection = document.querySelector('#top-section');
+const sectionActiveClass = 'content__section--active';
 
-var mobileQuery = window.matchMedia('(max-width: 575.98px)');
-var isMobile = mobileQuery.matches;
-var isMenuOpen = nav.classList.contains('nav--open');
+const mobileQuery = window.matchMedia('(max-width: 575.98px)');
+let isMobile = mobileQuery.matches;
+let isMenuOpen = nav.classList.contains('nav--open');
 
-var scrollOffset = nav.getBoundingClientRect().height + 10;
+const scrollOffset = nav.getBoundingClientRect().height + 10;
 
-var scrollSpyOptions = {
+const scrollSpyOptions = {
   navClass: 'nav__item--active',
   reflow: true,
-  offset: function () {
-    return isMobile ? 0 : scrollOffset;
-  },
+  offset: () => isMobile ? 0 : scrollOffset,
   events: false,
 };
 
-var smoothScrollOptions = {
+const smoothScrollOptions = {
   speed: 300,
   speedAsDuration: true,
-  offset: function () {
-    return isMobile ? 0 : scrollOffset;
-  },
+  offset: () => isMobile ? 0 : scrollOffset,
 };
 
-var stickyProfileOptions = {
+const stickyProfileOptions = {
   noStyles: true,
   useStickyClasses: true,
   stickyClass: 'profile--sticky',
@@ -42,7 +37,7 @@ var stickyProfileOptions = {
   useGetBoundingClientRect: true
 };
 
-var stickyNavOptions = {
+const stickyNavOptions = {
   noStyles: true,
   useStickyClasses: true,
   stickyClass: 'nav--sticky',
@@ -51,19 +46,19 @@ var stickyNavOptions = {
   useGetBoundingClientRect: true
 };
 
-var scrollSpy = new Gumshoe('.nav__link', scrollSpyOptions);
-var smoothScroll = new SmoothScroll('.nav__link', smoothScrollOptions);
-var stickyProfile = stickybits('.profile', stickyProfileOptions);
-var stickyNav = stickybits('.nav', stickyNavOptions);
+// eslint-disable-next-line no-unused-vars
+const scrollSpy = new Gumshoe('.nav__link', scrollSpyOptions);
+const smoothScroll = new SmoothScroll('.nav__link', smoothScrollOptions);
+// eslint-disable-next-line no-unused-vars
+const stickyProfile = stickybits('.profile', stickyProfileOptions);
+const stickyNav = stickybits('.nav', stickyNavOptions);
 
 function setActiveSection(event) {
-  var toggleHash = event.detail.toggle.getAttribute('href');
-  var firstNavLinkHash = firstNavLink.getAttribute('href');
-  var targetSection = (toggleHash !== firstNavLinkHash) ? event.detail.anchor : topSection;
+  const toggleHash = event.detail.toggle.getAttribute('href');
+  const firstNavLinkHash = firstNavLink.getAttribute('href');
+  const targetSection = (toggleHash !== firstNavLinkHash) ? event.detail.anchor : topSection;
 
-  for (var i = 0; i < sections.length; i++) {
-    sections[i].classList.remove(sectionActiveClass);
-  }
+  sections.forEach(section => section.classList.remove(sectionActiveClass));
   targetSection.classList.add(sectionActiveClass);
 }
 
@@ -76,8 +71,8 @@ function toggleNav() {
 
 function setNavWidth() {
   if (isMobile) return;
-  var navWidth = navContainer.offsetWidth;
-  nav.style.width = navWidth + 'px';
+  const navWidth = navContainer.offsetWidth;
+  nav.style.width = `${navWidth}px`;
   stickyNav.update();
 }
 
@@ -87,11 +82,10 @@ if (!Modernizr.csspositionsticky) {
 }
 
 function linksEvents() {
-  for (var j = 0; j < navLinks.length; j++) {
-    var link = navLinks[j];
-    link.addEventListener('click', function () {
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
       if (isMobile) {
-        var linkTarget = link.getAttribute('href');
+        const linkTarget = link.getAttribute('href');
         link.blur();
         if (isMenuOpen) {
           toggleNav();
@@ -99,7 +93,7 @@ function linksEvents() {
         smoothScroll.animateScroll(linkTarget);
       }
     });
-  }
+  });
 }
 
 function screenTest(query) {
@@ -120,11 +114,10 @@ function screenTest(query) {
   }
 }
 
-linksEvents();
-
 navToggle.addEventListener('click', toggleNav);
 document.addEventListener('scrollStop', setActiveSection, false);
 mobileQuery.addListener(screenTest);
 window.addEventListener('resize', stickyNav.update());
 
+linksEvents();
 svg4everybody();
