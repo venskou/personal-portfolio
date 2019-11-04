@@ -17,8 +17,10 @@
   },
   "scripts": {
     "build": "gulp build",
-    "lint": "eslint \"src/**/*.js\"",
-    "lint:fix": "eslint \"src/**/*.js\" --fix",
+    "lint-js": "eslint \"src/**/*.js\"",
+    "lint-js-fix": "eslint \"src/**/*.js\" --fix",
+    "list-styles": "stylelint \"src/styles/**/*.scss\"",
+    "list-styles-fix": "stylelint \"src/styles/**/*.scss\" --fix",
     "precommit": "lint-staged",
     "prettier": "prettier \"**/*.*\" --write",
     "server": "gulp server",
@@ -36,6 +38,10 @@
     ],
     "src/**/*.js": [
       "eslint --fix",
+      "git add"
+    ],
+    "src/styles/**/*.scss": [
+      "stylelint \"src/styles/**/*.scss\" --fix",
       "git add"
     ]
   },
@@ -79,6 +85,10 @@
     "husky": "^3.0.9",
     "lint-staged": "^9.4.2",
     "prettier": "^1.18.2",
-    "prettier-plugin-packagejson": "^2.0.1"
+    "prettier-plugin-packagejson": "^2.0.1",
+    "stylelint": "^9.8.0",
+    "stylelint-config-prettier": "^4.0.0",
+    "stylelint-config-recommended": "^2.1.0",
+    "stylelint-scss": "^3.12.1"
   }
 }
