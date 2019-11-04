@@ -3,7 +3,13 @@
   "version": "1.0.0",
   "description": "Personal portfolio website",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "gulp build",
+    "lint": "eslint \"src/**/*.js\"",
+    "lint:fix": "eslint \"src/**/*.js\" --fix",
+    "precommit": "lint-staged",
+    "prettier": "prettier \"**/*.*\" --write",
+    "server": "gulp server",
+    "start": "gulp"
   },
   "repository": {
     "type": "git",
@@ -22,6 +28,11 @@
     "@babel/core": "^7.6.0",
     "@babel/preset-env": "^7.6.0",
     "browser-sync": "^2.26.7",
+    "eslint": "5.16.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-config-prettier": "^6.4.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-prettier": "^3.1.1",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^7.0.0",
     "gulp-babel": "^8.0.0",
@@ -38,7 +49,10 @@
     "gulp-sass": "^4.0.2",
     "gulp-svgmin": "^2.2.0",
     "gulp-svgstore": "^7.0.1",
-    "gulp-uglify": "^3.0.2"
+    "gulp-uglify": "^3.0.2",
+    "lint-staged": "^9.4.2",
+    "prettier": "^1.18.2",
+    "prettier-plugin-packagejson": "^2.0.1"
   },
   "dependencies": {
     "gumshoejs": "^5.1.2",
@@ -46,6 +60,21 @@
     "smooth-scroll": "^16.1.0",
     "stickybits": "^3.6.7",
     "svg4everybody": "^2.1.9"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "**/*.*": [
+      "prettier --write",
+      "git add"
+    ],
+    "src/**/*.js": [
+      "eslint --fix",
+      "git add"
+    ]
   },
   "browserslist": [
     "last 2 versions",
