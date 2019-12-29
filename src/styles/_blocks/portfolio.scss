@@ -42,6 +42,7 @@
 
   &__item-presentation {
     margin-right: 30px;
+    flex-grow: 1;
 
     @media (max-width: $md-max-width) {
       margin-right: 0;
