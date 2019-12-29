@@ -8,8 +8,24 @@
     column-count: 1;
   }
 
+  &--column-1 {
+    column-count: 1;
+  }
+
   &__item {
     margin-bottom: 8px;
+
+    &--blue-dash {
+      position: relative;
+      padding-left: 20px;
+
+      &::before {
+        content: '—';
+        position: absolute;
+        left: 0;
+        color: $light-blue;
+      }
+    }
 
     .badge {
       white-space: initial;
