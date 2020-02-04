@@ -1,18 +1,6 @@
 .portfolio {
   &__items {
     margin-bottom: -20px;
-
-    @media (max-width: $md-max-width) {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: nowrap;
-      margin-right: -30px;
-    }
-
-    @media (max-width: $sm-max-width) {
-      flex-direction: column;
-      margin-right: 0;
-    }
   }
 
   &__item-wrapper {
@@ -34,7 +22,7 @@
     flex-wrap: nowrap;
     align-items: center;
 
-    @media (max-width: $md-max-width) {
+    @media (max-width: $sm-max-width) {
       flex-direction: column;
       align-items: flex-start;
     }
@@ -44,7 +32,7 @@
     margin-right: 30px;
     flex-grow: 1;
 
-    @media (max-width: $md-max-width) {
+    @media (max-width: $sm-max-width) {
       margin-right: 0;
     }
   }
@@ -98,7 +86,7 @@
       max-width: 250px;
     }
 
-    @media (max-width: $md-max-width) {
+    @media (max-width: $sm-max-width) {
       max-width: 300px;
       order: -1;
       margin-bottom: 20px;
